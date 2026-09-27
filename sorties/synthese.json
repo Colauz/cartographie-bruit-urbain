@@ -1,0 +1,16 @@
+{
+  "nb_capteurs": 20,
+  "lden_median": 59.5,
+  "lden_max": 69.2,
+  "points_noirs": 1,
+  "depassements_nuit": 0,
+  "part_au_dessus_de_65": 0.15,
+  "amplitude_jour_nuit_mediane": 6.6,
+  "repartition_classes": {
+    "60 – 65 dB": 7,
+    "55 – 60 dB": 5,
+    "< 55 dB": 5,
+    "65 – 68 dB": 2,
+    "68 – 75 dB": 1
+  }
+}

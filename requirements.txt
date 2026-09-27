@@ -1,0 +1,5 @@
+pandas>=2.2
+numpy>=1.26
+folium>=0.17
+branca>=0.7
+pytest>=8.0

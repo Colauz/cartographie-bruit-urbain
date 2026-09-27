@@ -1,0 +1,21 @@
+capteur_id,nom,latitude,longitude,type_voie,debit_reference_vh,part_poids_lourds,vitesse_kmh,distance_voie_m
+CH001,Avenue des Ducs de Savoie,45.5712,5.9204,artère,1450,0.07,50,12
+CH002,Quai des Allobroges,45.5698,5.9165,artère,1180,0.05,50,10
+CH003,Place du Palais de Justice,45.5662,5.9186,centre-ville,520,0.03,30,8
+CH004,Rue de Boigne,45.5674,5.9203,piétonnier,60,0.01,20,14
+CH005,Faubourg Montmélian,45.5601,5.9285,artère,1320,0.09,50,11
+CH006,Avenue de Lyon,45.5738,5.9108,artère,1610,0.08,50,9
+CH007,Voie rapide urbaine (VRU),45.5789,5.9032,voie rapide,3400,0.12,90,35
+CH008,Rue Nicolas Parent,45.5655,5.9241,desserte,310,0.02,30,7
+CH009,Hôpital — rue Sainte-Rose,45.5723,5.9296,desserte,280,0.04,30,18
+CH010,Lycée Vaugelas,45.5688,5.9152,centre-ville,640,0.03,30,15
+CH011,Chambéry-le-Haut,45.5921,5.9098,artère,870,0.06,50,13
+CH012,Bassens — route de Lyon,45.5851,5.9075,artère,1240,0.11,70,16
+CH013,La Ravoire — ZAC,45.5613,5.9508,artère,960,0.14,50,22
+CH014,Parc du Verney,45.5697,5.9248,parc,90,0.01,20,45
+CH015,Gare SNCF — parvis,45.5714,5.9182,centre-ville,710,0.04,30,12
+CH016,Rue de la République,45.5668,5.9218,centre-ville,480,0.02,30,9
+CH017,Cognin — avenue de Chambéry,45.5589,5.8963,artère,890,0.07,50,14
+CH018,Jacob-Bellecombette,45.5577,5.9101,desserte,340,0.03,30,11
+CH019,Sonnaz — RD991,45.6088,5.8967,route,620,0.16,80,25
+CH020,Barberaz — collège,45.5541,5.9312,desserte,290,0.03,30,16

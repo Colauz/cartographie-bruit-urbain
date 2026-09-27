@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b3d7548446d4bf64146b55ef4688e227 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b3d7548446d4bf64146b55ef4688e227" ></div>
+        
+    
+<div style="position:fixed;bottom:22px;left:14px;z-index:9999;background:rgba(255,255,255,.95);
+            padding:11px 13px;border-radius:7px;box-shadow:0 1px 10px rgba(0,0,0,.18);
+            font-family:system-ui,-apple-system,sans-serif">
+  <div style="font-size:11px;font-weight:600;color:#1B2430;margin-bottom:6px">
+    Exposition Lden
+  </div>
+  <div style="display:flex;align-items:center;gap:7px;margin:2px 0"><span style="width:13px;height:13px;border-radius:3px;background:#2E7D5B;display:inline-block"></span><span style="font-size:11px;color:#1B2430">< 55 dB</span></div><div style="display:flex;align-items:center;gap:7px;margin:2px 0"><span style="width:13px;height:13px;border-radius:3px;background:#8FBF6A;display:inline-block"></span><span style="font-size:11px;color:#1B2430">55 – 60 dB</span></div><div style="display:flex;align-items:center;gap:7px;margin:2px 0"><span style="width:13px;height:13px;border-radius:3px;background:#E4C64F;display:inline-block"></span><span style="font-size:11px;color:#1B2430">60 – 65 dB</span></div><div style="display:flex;align-items:center;gap:7px;margin:2px 0"><span style="width:13px;height:13px;border-radius:3px;background:#E09B3D;display:inline-block"></span><span style="font-size:11px;color:#1B2430">65 – 68 dB</span></div><div style="display:flex;align-items:center;gap:7px;margin:2px 0"><span style="width:13px;height:13px;border-radius:3px;background:#C8542F;display:inline-block"></span><span style="font-size:11px;color:#1B2430">68 – 75 dB</span></div><div style="display:flex;align-items:center;gap:7px;margin:2px 0"><span style="width:13px;height:13px;border-radius:3px;background:#8C2A1B;display:inline-block"></span><span style="font-size:11px;color:#1B2430">> 75 dB</span></div>
+  <div style="font-size:9.5px;color:#6B7684;margin-top:7px;max-width:170px;line-height:1.35">
+    Seuil point noir du bruit routier : 68 dB(A) en Lden, 62 dB(A) la nuit.
+  </div>
+</div>
+</body>
+<script>
+    
+    
+            var map_b3d7548446d4bf64146b55ef4688e227 = L.map(
+                "map_b3d7548446d4bf64146b55ef4688e227",
+                {
+                    center: [45.57, 5.918],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_b3d7548446d4bf64146b55ef4688e227);
+
+            
+
+        
+    
+            var tile_layer_cc7f3e9f68f97849095298b79acde520 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_cc7f3e9f68f97849095298b79acde520.addTo(map_b3d7548446d4bf64146b55ef4688e227);
+        
+    
+            var feature_group_84de02ed0e8214623ad42dd0eb0bf1b6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ed385f881bff7e93567daf9f2e45de8e = L.circleMarker(
+                [45.5789, 5.9032],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C8542F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.730000000000004, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_2cd895e56366feeb4a223e7f8a4fff18 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9b22914ddb00bd267a0bd55bb52fa2ea = $(`<div id="html_9b22914ddb00bd267a0bd55bb52fa2ea" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Voie rapide urbaine (VRU)</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH007 · voie rapide · 35 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#C8542F">69.2</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">67.6</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">61.0</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,38.5 14.1,43.7 24.2,53.1 34.3,54.0 44.3,48.8 54.4,32.9 64.5,21.7 74.6,10.9 84.7,7.0 94.8,7.4 104.9,10.0 115.0,7.4 125.0,7.9 135.1,6.2 145.2,10.9 155.3,7.9 165.4,4.0 175.5,4.9 185.6,6.2 195.7,11.8 205.7,19.9 215.8,25.6 225.9,22.1 236.0,27.3" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (68.6 dB) ·     écart jour/nuit 6.6 dB   </div>   <div style="background:#FBEAE5;border-left:3px solid #C8542F;padding:6px 8px;margin:8px 0;font-size:11px;color:#8C2A1B">Lden ≥ 68 dB — point noir du bruit</div>   <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Point noir du bruit</div> </div> </div>`)[0];
+                popup_2cd895e56366feeb4a223e7f8a4fff18.setContent(html_9b22914ddb00bd267a0bd55bb52fa2ea);
+            
+        
+
+        circle_marker_ed385f881bff7e93567daf9f2e45de8e.bindPopup(popup_2cd895e56366feeb4a223e7f8a4fff18)
+        ;
+
+        
+    
+    
+            circle_marker_ed385f881bff7e93567daf9f2e45de8e.bindTooltip(
+                `<div>
+                     Voie rapide urbaine (VRU) — 69.2 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca3f027e8fc718595c78d207d262a9ee = L.circleMarker(
+                [45.5738, 5.9108],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E09B3D", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.714999999999996, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_798c383c56c6f7e0df97a36ac56e4d71 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9a590404904751a46c70e595dc37d1f4 = $(`<div id="html_9a590404904751a46c70e595dc37d1f4" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Avenue de Lyon</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH006 · artère · 9 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E09B3D">66.1</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">64.5</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">57.7</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,37.5 14.1,47.6 24.2,51.9 34.3,54.0 44.3,48.9 54.4,33.2 64.5,21.8 74.6,10.8 84.7,8.7 94.8,8.2 104.9,12.9 115.0,7.8 125.0,5.7 135.1,9.5 145.2,9.1 155.3,8.2 165.4,4.8 175.5,4.0 185.6,6.5 195.7,13.7 205.7,16.7 215.8,23.9 225.9,23.5 236.0,29.0" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (65.6 dB) ·     écart jour/nuit 6.8 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Proche du seuil réglementaire</div> </div> </div>`)[0];
+                popup_798c383c56c6f7e0df97a36ac56e4d71.setContent(html_9a590404904751a46c70e595dc37d1f4);
+            
+        
+
+        circle_marker_ca3f027e8fc718595c78d207d262a9ee.bindPopup(popup_798c383c56c6f7e0df97a36ac56e4d71)
+        ;
+
+        
+    
+    
+            circle_marker_ca3f027e8fc718595c78d207d262a9ee.bindTooltip(
+                `<div>
+                     Avenue de Lyon — 66.1 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb82630909554f4f4bc4b87f98a947ea = L.circleMarker(
+                [45.5851, 5.9075],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E09B3D", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.519999999999996, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_4d763cb5402ad41e3f63baec61277a09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0840720cf6be7a8ce582f1b0a6a5e49 = $(`<div id="html_d0840720cf6be7a8ce582f1b0a6a5e49" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Bassens — route de Lyon</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH012 · artère · 16 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E09B3D">65.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">64.1</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">57.7</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,35.0 14.1,43.3 24.2,47.8 34.3,54.0 44.3,44.9 54.4,30.9 64.5,22.2 74.6,9.4 84.7,7.7 94.8,10.2 104.9,8.5 115.0,8.1 125.0,9.0 135.1,7.3 145.2,7.7 155.3,6.1 165.4,4.8 175.5,4.0 185.6,6.1 195.7,11.9 205.7,17.6 215.8,22.2 225.9,19.7 236.0,27.6" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (65.1 dB) ·     écart jour/nuit 6.4 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Proche du seuil réglementaire</div> </div> </div>`)[0];
+                popup_4d763cb5402ad41e3f63baec61277a09.setContent(html_d0840720cf6be7a8ce582f1b0a6a5e49);
+            
+        
+
+        circle_marker_bb82630909554f4f4bc4b87f98a947ea.bindPopup(popup_4d763cb5402ad41e3f63baec61277a09)
+        ;
+
+        
+    
+    
+            circle_marker_bb82630909554f4f4bc4b87f98a947ea.bindTooltip(
+                `<div>
+                     Bassens — route de Lyon — 65.8 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1bdfa783676e43344cd01dd4e31fb01b = L.circleMarker(
+                [45.5601, 5.9285],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.869999999999997, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_8ebcb1cf78e4278460a190a112099886 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f887764a3d46991e30c0662241c23cc = $(`<div id="html_3f887764a3d46991e30c0662241c23cc" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Faubourg Montmélian</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH005 · artère · 11 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">64.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">63.2</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">56.6</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,36.9 14.1,47.4 24.2,52.7 34.3,54.0 44.3,48.7 54.4,31.6 64.5,22.9 74.6,9.7 84.7,7.9 94.8,9.7 104.9,10.6 115.0,7.1 125.0,6.2 135.1,4.9 145.2,7.1 155.3,7.5 165.4,4.0 175.5,4.4 185.6,7.5 195.7,13.2 205.7,20.2 215.8,22.9 225.9,21.5 236.0,28.1" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (64.1 dB) ·     écart jour/nuit 6.6 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_8ebcb1cf78e4278460a190a112099886.setContent(html_3f887764a3d46991e30c0662241c23cc);
+            
+        
+
+        circle_marker_1bdfa783676e43344cd01dd4e31fb01b.bindPopup(popup_8ebcb1cf78e4278460a190a112099886)
+        ;
+
+        
+    
+    
+            circle_marker_1bdfa783676e43344cd01dd4e31fb01b.bindTooltip(
+                `<div>
+                     Faubourg Montmélian — 64.8 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81b722050ff8be086bd086caca37a6fe = L.circleMarker(
+                [45.5712, 5.9204],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.415, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_169c7900e3ebe2cf62792a2197e7b63f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be8a93f0c8cedeca78280e230edfd05d = $(`<div id="html_be8a93f0c8cedeca78280e230edfd05d" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Avenue des Ducs de Savoie</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH001 · artère · 12 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">64.1</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">62.4</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">55.7</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,38.2 14.1,45.5 24.2,50.2 34.3,54.0 44.3,48.9 54.4,34.3 64.5,19.4 74.6,12.1 84.7,8.7 94.8,9.1 104.9,9.1 115.0,8.3 125.0,7.4 135.1,7.8 145.2,9.6 155.3,7.4 165.4,4.0 175.5,4.9 185.6,5.3 195.7,10.4 205.7,17.7 215.8,22.8 225.9,23.2 236.0,29.2" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (63.5 dB) ·     écart jour/nuit 6.8 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_169c7900e3ebe2cf62792a2197e7b63f.setContent(html_be8a93f0c8cedeca78280e230edfd05d);
+            
+        
+
+        circle_marker_81b722050ff8be086bd086caca37a6fe.bindPopup(popup_169c7900e3ebe2cf62792a2197e7b63f)
+        ;
+
+        
+    
+    
+            circle_marker_81b722050ff8be086bd086caca37a6fe.bindTooltip(
+                `<div>
+                     Avenue des Ducs de Savoie — 64.1 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79ee114c2c73d578755dc8b67afa3bff = L.circleMarker(
+                [45.5698, 5.9165],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.96, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_6e4770db33e170068d6d74b8387da002 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b02ea1e4f9370b727373e434cf480ba = $(`<div id="html_1b02ea1e4f9370b727373e434cf480ba" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Quai des Allobroges</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH002 · artère · 10 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">63.4</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">61.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">54.9</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,41.8 14.1,49.0 24.2,54.0 34.3,53.5 44.3,50.8 54.4,35.5 64.5,21.1 74.6,9.4 84.7,6.7 94.8,9.0 104.9,9.9 115.0,5.8 125.0,7.2 135.1,8.1 145.2,9.9 155.3,6.7 165.4,6.7 175.5,4.0 185.6,7.2 195.7,14.4 205.7,20.2 215.8,23.4 225.9,23.4 236.0,32.8" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (62.8 dB) ·     écart jour/nuit 6.9 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_6e4770db33e170068d6d74b8387da002.setContent(html_1b02ea1e4f9370b727373e434cf480ba);
+            
+        
+
+        circle_marker_79ee114c2c73d578755dc8b67afa3bff.bindPopup(popup_6e4770db33e170068d6d74b8387da002)
+        ;
+
+        
+    
+    
+            circle_marker_79ee114c2c73d578755dc8b67afa3bff.bindTooltip(
+                `<div>
+                     Quai des Allobroges — 63.4 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53c2b7980b3c544636c27aff3711a47f = L.circleMarker(
+                [45.6088, 5.8967],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.634999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_ea1ce896f97d060c34f526702d185bd0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c112ffa4789a91b07c5cf63a33d01e99 = $(`<div id="html_c112ffa4789a91b07c5cf63a33d01e99" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Sonnaz — RD991</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH019 · route · 25 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">62.9</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">61.2</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">54.8</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,36.1 14.1,47.6 24.2,51.0 34.3,54.0 44.3,47.6 54.4,31.4 64.5,22.4 74.6,10.8 84.7,8.7 94.8,12.5 104.9,9.6 115.0,9.1 125.0,7.4 135.1,8.3 145.2,7.4 155.3,7.0 165.4,5.3 175.5,4.0 185.6,8.3 195.7,12.5 205.7,19.0 215.8,24.9 225.9,20.7 236.0,29.6" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (62.4 dB) ·     écart jour/nuit 6.4 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_ea1ce896f97d060c34f526702d185bd0.setContent(html_c112ffa4789a91b07c5cf63a33d01e99);
+            
+        
+
+        circle_marker_53c2b7980b3c544636c27aff3711a47f.bindPopup(popup_ea1ce896f97d060c34f526702d185bd0)
+        ;
+
+        
+    
+    
+            circle_marker_53c2b7980b3c544636c27aff3711a47f.bindTooltip(
+                `<div>
+                     Sonnaz — RD991 — 62.9 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ea48960ef6ed4969803c792c15a917f = L.circleMarker(
+                [45.5921, 5.9098],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.79, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_97cfc3a9dca6b38c9962eb88861a856a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1c687234f4baa86b3a9ef3d8d0f38d6c = $(`<div id="html_1c687234f4baa86b3a9ef3d8d0f38d6c" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Chambéry-le-Haut</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH011 · artère · 13 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">61.6</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">59.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">53.1</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,37.8 14.1,44.6 24.2,50.2 34.3,54.0 44.3,46.3 54.4,35.6 64.5,21.9 74.6,10.0 84.7,7.0 94.8,9.6 104.9,10.0 115.0,9.6 125.0,8.3 135.1,7.4 145.2,8.7 155.3,7.4 165.4,4.9 175.5,4.0 185.6,7.0 195.7,12.1 205.7,16.8 215.8,20.2 225.9,22.4 236.0,30.1" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (60.9 dB) ·     écart jour/nuit 6.7 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_97cfc3a9dca6b38c9962eb88861a856a.setContent(html_1c687234f4baa86b3a9ef3d8d0f38d6c);
+            
+        
+
+        circle_marker_3ea48960ef6ed4969803c792c15a917f.bindPopup(popup_97cfc3a9dca6b38c9962eb88861a856a)
+        ;
+
+        
+    
+    
+            circle_marker_3ea48960ef6ed4969803c792c15a917f.bindTooltip(
+                `<div>
+                     Chambéry-le-Haut — 61.6 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b59999f9fb9a5e6db70b2a5a2010dbb3 = L.circleMarker(
+                [45.5589, 5.8963],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.66, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_740b394a8f29bb162008cdf0e9c2a134 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb59237c816e4f05be5ff675c0fb4049 = $(`<div id="html_bb59237c816e4f05be5ff675c0fb4049" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Cognin — avenue de Chambéry</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH017 · artère · 14 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">61.4</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">59.6</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">53.0</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,35.2 14.1,44.4 24.2,49.0 34.3,54.0 44.3,49.4 54.4,33.2 64.5,22.8 74.6,11.1 84.7,8.2 94.8,11.5 104.9,9.4 115.0,8.6 125.0,9.4 135.1,11.5 145.2,8.6 155.3,9.0 165.4,7.3 175.5,4.0 185.6,8.2 195.7,13.6 205.7,18.6 215.8,24.0 225.9,24.0 236.0,30.7" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (61.0 dB) ·     écart jour/nuit 6.6 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_740b394a8f29bb162008cdf0e9c2a134.setContent(html_bb59237c816e4f05be5ff675c0fb4049);
+            
+        
+
+        circle_marker_b59999f9fb9a5e6db70b2a5a2010dbb3.bindPopup(popup_740b394a8f29bb162008cdf0e9c2a134)
+        ;
+
+        
+    
+    
+            circle_marker_b59999f9fb9a5e6db70b2a5a2010dbb3.bindTooltip(
+                `<div>
+                     Cognin — avenue de Chambéry — 61.4 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cfe4a1df94cb9b628cd41211062000a = L.circleMarker(
+                [45.5613, 5.9508],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E4C64F", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.595, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_d9adf3aa532ac3ae3098856726120f8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74a7f7c763fc349270c6ba4cef41a993 = $(`<div id="html_74a7f7c763fc349270c6ba4cef41a993" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">La Ravoire — ZAC</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH013 · artère · 22 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#E4C64F">61.3</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">59.3</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">53.2</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,34.4 14.1,44.2 24.2,51.8 34.3,54.0 44.3,46.0 54.4,31.2 64.5,21.0 74.6,11.1 84.7,7.1 94.8,10.2 104.9,11.6 115.0,8.0 125.0,5.3 135.1,7.1 145.2,8.5 155.3,6.7 165.4,5.3 175.5,4.0 185.6,6.7 195.7,12.0 205.7,16.1 215.8,21.9 225.9,21.4 236.0,27.7" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (60.3 dB) ·     écart jour/nuit 6.1 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition notable</div> </div> </div>`)[0];
+                popup_d9adf3aa532ac3ae3098856726120f8d.setContent(html_74a7f7c763fc349270c6ba4cef41a993);
+            
+        
+
+        circle_marker_8cfe4a1df94cb9b628cd41211062000a.bindPopup(popup_d9adf3aa532ac3ae3098856726120f8d)
+        ;
+
+        
+    
+    
+            circle_marker_8cfe4a1df94cb9b628cd41211062000a.bindTooltip(
+                `<div>
+                     La Ravoire — ZAC — 61.3 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_78cae630589cf84c80960551fe5ffca5 = L.circleMarker(
+                [45.5662, 5.9186],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8FBF6A", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.190000000000001, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_dd644179ec796cf4e30909e9aa97f96c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b24fab487a7f2e40522a53cd0bd1f1f = $(`<div id="html_0b24fab487a7f2e40522a53cd0bd1f1f" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Place du Palais de Justice</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH003 · centre-ville · 8 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#8FBF6A">57.6</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">54.4</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">49.9</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,43.7 14.1,50.1 24.2,52.7 34.3,54.0 44.3,51.8 54.4,38.9 64.5,27.3 74.6,16.9 84.7,13.1 94.8,16.5 104.9,17.4 115.0,14.8 125.0,14.3 135.1,14.8 145.2,14.3 155.3,15.2 165.4,12.2 175.5,11.8 185.6,13.5 195.7,4.9 205.7,4.0 215.8,10.0 225.9,16.1 236.0,18.7" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 20 h (57.0 dB) ·     écart jour/nuit 4.5 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition modérée</div> </div> </div>`)[0];
+                popup_dd644179ec796cf4e30909e9aa97f96c.setContent(html_0b24fab487a7f2e40522a53cd0bd1f1f);
+            
+        
+
+        circle_marker_78cae630589cf84c80960551fe5ffca5.bindPopup(popup_dd644179ec796cf4e30909e9aa97f96c)
+        ;
+
+        
+    
+    
+            circle_marker_78cae630589cf84c80960551fe5ffca5.bindTooltip(
+                `<div>
+                     Place du Palais de Justice — 57.6 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_adc3f73c94b5fd9ab83e5a961c4a738f = L.circleMarker(
+                [45.5714, 5.9182],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8FBF6A", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.059999999999999, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_74b55ae47e60320856eeb512aafdc808 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c4861e6b16875795f59dec19755fdad = $(`<div id="html_2c4861e6b16875795f59dec19755fdad" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Gare SNCF — parvis</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH015 · centre-ville · 12 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#8FBF6A">57.4</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">54.2</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">51.2</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,39.8 14.1,47.1 24.2,50.3 34.3,54.0 44.3,51.2 54.4,37.0 64.5,24.6 74.6,10.9 84.7,11.3 94.8,10.9 104.9,14.6 115.0,10.4 125.0,8.1 135.1,11.8 145.2,14.1 155.3,10.9 165.4,8.1 175.5,8.1 185.6,8.1 195.7,4.0 205.7,12.7 215.8,9.0 225.9,4.5 236.0,4.5" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 19 h (55.9 dB) ·     écart jour/nuit 3.0 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition modérée</div> </div> </div>`)[0];
+                popup_74b55ae47e60320856eeb512aafdc808.setContent(html_2c4861e6b16875795f59dec19755fdad);
+            
+        
+
+        circle_marker_adc3f73c94b5fd9ab83e5a961c4a738f.bindPopup(popup_74b55ae47e60320856eeb512aafdc808)
+        ;
+
+        
+    
+    
+            circle_marker_adc3f73c94b5fd9ab83e5a961c4a738f.bindTooltip(
+                `<div>
+                     Gare SNCF — parvis — 57.4 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_725b73bf30dbeab5a96eaea52996c62d = L.circleMarker(
+                [45.5668, 5.9218],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8FBF6A", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.8, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_3d3c4d674a2c18f74fccb48f5c550419 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c68f44d75b66e8ca39c83e05100db82 = $(`<div id="html_3c68f44d75b66e8ca39c83e05100db82" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Rue de la République</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH016 · centre-ville · 9 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#8FBF6A">57.0</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">53.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">49.9</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,45.7 14.1,50.1 24.2,53.1 34.3,54.0 44.3,53.1 54.4,41.4 64.5,28.8 74.6,17.5 84.7,13.6 94.8,16.6 104.9,16.6 115.0,17.9 125.0,14.4 135.1,15.3 145.2,15.7 155.3,15.3 165.4,11.8 175.5,12.3 185.6,14.4 195.7,4.0 205.7,12.3 215.8,11.4 225.9,14.0 236.0,13.6" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 19 h (56.5 dB) ·     écart jour/nuit 3.9 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition modérée</div> </div> </div>`)[0];
+                popup_3d3c4d674a2c18f74fccb48f5c550419.setContent(html_3c68f44d75b66e8ca39c83e05100db82);
+            
+        
+
+        circle_marker_725b73bf30dbeab5a96eaea52996c62d.bindPopup(popup_3d3c4d674a2c18f74fccb48f5c550419)
+        ;
+
+        
+    
+    
+            circle_marker_725b73bf30dbeab5a96eaea52996c62d.bindTooltip(
+                `<div>
+                     Rue de la République — 57.0 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b7723e05cc86475f76a159b01b4756b = L.circleMarker(
+                [45.5688, 5.9152],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8FBF6A", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.475000000000001, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_579b2f2b119c50d2a9873e399b045099 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_374dafe687031bf307c427fb8b58fa33 = $(`<div id="html_374dafe687031bf307c427fb8b58fa33" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Lycée Vaugelas</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH010 · centre-ville · 15 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#8FBF6A">56.5</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">52.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">49.6</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,42.5 14.1,48.7 24.2,51.1 34.3,54.0 44.3,50.3 54.4,38.8 64.5,27.8 74.6,17.5 84.7,16.3 94.8,19.2 104.9,16.3 115.0,18.3 125.0,15.5 135.1,15.1 145.2,15.9 155.3,15.9 165.4,13.8 175.5,15.5 185.6,15.5 195.7,4.0 205.7,7.3 215.8,7.7 225.9,13.8 236.0,10.6" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 19 h (56.0 dB) ·     écart jour/nuit 3.3 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition modérée</div> </div> </div>`)[0];
+                popup_579b2f2b119c50d2a9873e399b045099.setContent(html_374dafe687031bf307c427fb8b58fa33);
+            
+        
+
+        circle_marker_2b7723e05cc86475f76a159b01b4756b.bindPopup(popup_579b2f2b119c50d2a9873e399b045099)
+        ;
+
+        
+    
+    
+            circle_marker_2b7723e05cc86475f76a159b01b4756b.bindTooltip(
+                `<div>
+                     Lycée Vaugelas — 56.5 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13bbff9d6f1de7870e72d5c3de8f9120 = L.circleMarker(
+                [45.5674, 5.9203],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8FBF6A", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_f6b080d9eaca74e602453d6080e547b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27fbad3ed18c7d0cc318eca147ac7d81 = $(`<div id="html_27fbad3ed18c7d0cc318eca147ac7d81" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Rue de Boigne</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH004 · piétonnier · 14 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#8FBF6A">55.0</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">54.1</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">48.3</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,52.5 14.1,53.5 24.2,54.0 34.3,53.7 44.3,54.0 54.4,52.7 64.5,50.2 74.6,47.4 84.7,45.8 94.8,47.6 104.9,45.8 115.0,5.0 125.0,10.9 135.1,7.3 145.2,6.8 155.3,6.6 165.4,10.1 175.5,14.2 185.6,4.0 195.7,10.6 205.7,8.6 215.8,9.9 225.9,7.1 236.0,52.7" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 18 h (58.0 dB) ·     écart jour/nuit 5.8 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition modérée</div> </div> </div>`)[0];
+                popup_f6b080d9eaca74e602453d6080e547b3.setContent(html_27fbad3ed18c7d0cc318eca147ac7d81);
+            
+        
+
+        circle_marker_13bbff9d6f1de7870e72d5c3de8f9120.bindPopup(popup_f6b080d9eaca74e602453d6080e547b3)
+        ;
+
+        
+    
+    
+            circle_marker_13bbff9d6f1de7870e72d5c3de8f9120.bindTooltip(
+                `<div>
+                     Rue de Boigne — 55.0 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e2755cad9534613bf6ad8952e2fb2f2 = L.circleMarker(
+                [45.5655, 5.9241],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2E7D5B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.044999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_0e0e15ab4ea99cffef18cc3c7174d459 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d26e25cbf23da60e1ea8c08506ecb7cc = $(`<div id="html_d26e25cbf23da60e1ea8c08506ecb7cc" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Rue Nicolas Parent</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH008 · desserte · 7 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#2E7D5B">54.3</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">52.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">45.7</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,40.4 14.1,48.3 24.2,52.2 34.3,54.0 44.3,50.5 54.4,33.8 64.5,21.5 74.6,7.9 84.7,8.4 94.8,10.1 104.9,10.1 115.0,7.1 125.0,4.9 135.1,5.3 145.2,7.5 155.3,6.6 165.4,4.0 175.5,4.4 185.6,6.6 195.7,11.9 205.7,15.8 215.8,22.4 225.9,22.4 236.0,31.6" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (53.6 dB) ·     écart jour/nuit 7.0 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition faible</div> </div> </div>`)[0];
+                popup_0e0e15ab4ea99cffef18cc3c7174d459.setContent(html_d26e25cbf23da60e1ea8c08506ecb7cc);
+            
+        
+
+        circle_marker_2e2755cad9534613bf6ad8952e2fb2f2.bindPopup(popup_0e0e15ab4ea99cffef18cc3c7174d459)
+        ;
+
+        
+    
+    
+            circle_marker_2e2755cad9534613bf6ad8952e2fb2f2.bindTooltip(
+                `<div>
+                     Rue Nicolas Parent — 54.3 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_202dffee616df3b83a9719d6a76d8363 = L.circleMarker(
+                [45.5577, 5.9101],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2E7D5B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.134999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_2495753d3b718b36fc2bacf4231be857 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bef09a61f0581bfafb47c76d29285934 = $(`<div id="html_bef09a61f0581bfafb47c76d29285934" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Jacob-Bellecombette</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH018 · desserte · 11 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#2E7D5B">52.9</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">51.3</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">44.3</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,39.0 14.1,45.9 24.2,49.7 34.3,54.0 44.3,48.9 54.4,35.6 64.5,21.5 74.6,9.6 84.7,7.0 94.8,10.4 104.9,10.8 115.0,8.7 125.0,7.0 135.1,6.6 145.2,7.8 155.3,7.8 165.4,4.0 175.5,5.3 185.6,7.8 195.7,15.1 205.7,17.7 215.8,22.4 225.9,24.5 236.0,31.4" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (52.4 dB) ·     écart jour/nuit 7.0 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition faible</div> </div> </div>`)[0];
+                popup_2495753d3b718b36fc2bacf4231be857.setContent(html_bef09a61f0581bfafb47c76d29285934);
+            
+        
+
+        circle_marker_202dffee616df3b83a9719d6a76d8363.bindPopup(popup_2495753d3b718b36fc2bacf4231be857)
+        ;
+
+        
+    
+    
+            circle_marker_202dffee616df3b83a9719d6a76d8363.bindTooltip(
+                `<div>
+                     Jacob-Bellecombette — 52.9 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b952a64123b02949828e1a5013952cc = L.circleMarker(
+                [45.5541, 5.9312],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2E7D5B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.705000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_9c2103fe8cb917fe1e9ffbf9ddb99002 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77aba683eb79a06bea7f551ab8dca2f9 = $(`<div id="html_77aba683eb79a06bea7f551ab8dca2f9" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Barberaz — collège</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH020 · desserte · 16 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#2E7D5B">50.7</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">48.8</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">42.3</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,39.8 14.1,46.9 24.2,51.2 34.3,54.0 44.3,50.2 54.4,34.7 64.5,21.9 74.6,10.6 84.7,9.2 94.8,12.5 104.9,11.1 115.0,6.8 125.0,7.3 135.1,6.8 145.2,7.8 155.3,7.8 165.4,4.0 175.5,4.5 185.6,6.8 195.7,10.6 205.7,19.1 215.8,21.0 225.9,24.8 236.0,31.8" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (49.8 dB) ·     écart jour/nuit 6.5 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition faible</div> </div> </div>`)[0];
+                popup_9c2103fe8cb917fe1e9ffbf9ddb99002.setContent(html_77aba683eb79a06bea7f551ab8dca2f9);
+            
+        
+
+        circle_marker_2b952a64123b02949828e1a5013952cc.bindPopup(popup_9c2103fe8cb917fe1e9ffbf9ddb99002)
+        ;
+
+        
+    
+    
+            circle_marker_2b952a64123b02949828e1a5013952cc.bindTooltip(
+                `<div>
+                     Barberaz — collège — 50.7 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14dd15df03bfee21ff1e7e077bfac271 = L.circleMarker(
+                [45.5723, 5.9296],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2E7D5B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.575, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_075de4a7f0b02c130ccb45c2224e10fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f1bb37ffa7dc998df3b5be35b8c100d = $(`<div id="html_5f1bb37ffa7dc998df3b5be35b8c100d" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Hôpital — rue Sainte-Rose</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH009 · desserte · 18 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#2E7D5B">50.5</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">48.7</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">42.1</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,40.6 14.1,48.1 24.2,53.0 34.3,54.0 44.3,51.0 54.4,36.7 64.5,22.3 74.6,11.9 84.7,6.0 94.8,9.0 104.9,9.4 115.0,6.5 125.0,6.5 135.1,6.5 145.2,7.5 155.3,6.5 165.4,4.5 175.5,4.0 185.6,6.5 195.7,12.9 205.7,18.4 215.8,26.3 225.9,26.8 236.0,32.7" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 17 h (49.5 dB) ·     écart jour/nuit 6.6 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition faible</div> </div> </div>`)[0];
+                popup_075de4a7f0b02c130ccb45c2224e10fe.setContent(html_5f1bb37ffa7dc998df3b5be35b8c100d);
+            
+        
+
+        circle_marker_14dd15df03bfee21ff1e7e077bfac271.bindPopup(popup_075de4a7f0b02c130ccb45c2224e10fe)
+        ;
+
+        
+    
+    
+            circle_marker_14dd15df03bfee21ff1e7e077bfac271.bindTooltip(
+                `<div>
+                     Hôpital — rue Sainte-Rose — 50.5 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3847b9b96d7b6b209ff0ad13a28dcdbb = L.circleMarker(
+                [45.5697, 5.9248],
+                {"bubblingMouseEvents": true, "color": "#FFFFFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2E7D5B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.0, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_84de02ed0e8214623ad42dd0eb0bf1b6);
+        
+    
+        var popup_ae5b4e921587257b6f46ad8445fde5eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5964378af943911b1dce7b1af5c12e5e = $(`<div id="html_5964378af943911b1dce7b1af5c12e5e" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Parc du Verney</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH014 · parc · 45 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#2E7D5B">41.7</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">42.5</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">32.7</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,50.2 14.1,52.6 24.2,54.0 34.3,52.6 44.3,54.0 54.4,49.9 64.5,44.0 74.6,37.4 84.7,37.1 94.8,37.8 104.9,37.8 115.0,37.8 125.0,4.7 135.1,4.0 145.2,11.2 155.3,7.8 165.4,14.7 175.5,11.9 185.6,9.5 195.7,40.9 205.7,42.3 215.8,44.3 225.9,46.4 236.0,50.2" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 13 h (46.3 dB) ·     écart jour/nuit 9.9 dB   </div>      <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Exposition faible</div> </div> </div>`)[0];
+                popup_ae5b4e921587257b6f46ad8445fde5eb.setContent(html_5964378af943911b1dce7b1af5c12e5e);
+            
+        
+
+        circle_marker_3847b9b96d7b6b209ff0ad13a28dcdbb.bindPopup(popup_ae5b4e921587257b6f46ad8445fde5eb)
+        ;
+
+        
+    
+    
+            circle_marker_3847b9b96d7b6b209ff0ad13a28dcdbb.bindTooltip(
+                `<div>
+                     Parc du Verney — 41.7 dB(A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_84de02ed0e8214623ad42dd0eb0bf1b6.addTo(map_b3d7548446d4bf64146b55ef4688e227);
+        
+    
+            var heat_map_53cf9671105524282a8168b3d615744e = L.heatLayer(
+                [[45.5789, 5.9032, 1.0], [45.5738, 5.9108, 0.48977881936844514], [45.5851, 5.9075, 0.4570881896148743], [45.5601, 5.9285, 0.3630780547701011], [45.5712, 5.9204, 0.3090295432513586], [45.5698, 5.9165, 0.26302679918953786], [45.6088, 5.8967, 0.23442288153199206], [45.5921, 5.9098, 0.17378008287493746], [45.5589, 5.8963, 0.1659586907437559], [45.5613, 5.9508, 0.16218100973589283], [45.5662, 5.9186, 0.06918309709189363], [45.5714, 5.9182, 0.06606934480075954], [45.5668, 5.9218, 0.06025595860743575], [45.5688, 5.9152, 0.05370317963702525], [45.5674, 5.9203, 0.03801893963205609], [45.5655, 5.9241, 0.03235936569296278], [45.5577, 5.9101, 0.023442288153199205], [45.5541, 5.9312, 0.014125375446227545], [45.5723, 5.9296, 0.013489628825916528], [45.5697, 5.9248, 0.001778279410038923]],
+                {
+  "minOpacity": 0.25,
+  "maxZoom": 18,
+  "radius": 34,
+  "blur": 26,
+  "gradient": {
+  0.0: "#2E7D5B",
+  0.35: "#E4C64F",
+  0.6: "#E09B3D",
+  0.85: "#C8542F",
+  1.0: "#8C2A1B",
+},
+}
+            );
+        
+    
+            var feature_group_495a8c4bec60136357d8e31e9c0b228c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_1bacdd3ffe9759a2dee8b2317cc3c663 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_44d25dc029df4fa19991b7f66468cb50 = L.marker(
+                [45.5789, 5.9032],
+                {
+}
+            ).addTo(marker_cluster_1bacdd3ffe9759a2dee8b2317cc3c663);
+        
+    
+            var icon_0600dbf853ad4cda36e091ea4925918c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "volume-up",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0efd299fd6db8209b231dfd6a37ccde4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9926e6f0b88b556718a2a2718ba64b3 = $(`<div id="html_a9926e6f0b88b556718a2a2718ba64b3" style="width: 100.0%; height: 100.0%;"> <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;width:262px">   <div style="font-weight:600;font-size:13px;color:#1B2430">Voie rapide urbaine (VRU)</div>   <div style="font-size:10.5px;color:#6B7684;margin-bottom:8px">     CH007 · voie rapide · 35 m de la voie   </div>    <div style="display:flex;gap:14px;margin-bottom:8px">     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Lden</div>          <div style="font-size:17px;font-weight:600;color:#C8542F">69.2</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Jour</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">67.6</div></div>     <div><div style="font-size:9px;color:#6B7684;text-transform:uppercase">Nuit</div>          <div style="font-size:17px;font-weight:600;color:#1B2430">61.0</div></div>   </div>    <svg width="240" height="58" viewBox="0 0 240 58" role="img" aria-label="Profil horaire du niveau sonore"><rect x="4" y="0" width="60.5" height="58" fill="#2B3A55" opacity="0.10"/><rect x="225.9" y="0" width="10.1" height="58" fill="#2B3A55" opacity="0.10"/><polyline points="4.0,38.5 14.1,43.7 24.2,53.1 34.3,54.0 44.3,48.8 54.4,32.9 64.5,21.7 74.6,10.9 84.7,7.0 94.8,7.4 104.9,10.0 115.0,7.4 125.0,7.9 135.1,6.2 145.2,10.9 155.3,7.9 165.4,4.0 175.5,4.9 185.6,6.2 195.7,11.8 205.7,19.9 215.8,25.6 225.9,22.1 236.0,27.3" fill="none" stroke="#1F5C8B" stroke-width="1.8" stroke-linejoin="round"/><text x="4" y="57" font-size="8" fill="#6B7684">0h</text><text x="114" y="57" font-size="8" fill="#6B7684">12h</text><text x="222" y="57" font-size="8" fill="#6B7684">23h</text></svg>    <div style="font-size:10.5px;color:#6B7684;margin-top:6px">     Pointe à 16 h (68.6 dB) ·     écart jour/nuit 6.6 dB   </div>   <div style="background:#FBEAE5;border-left:3px solid #C8542F;padding:6px 8px;margin:8px 0;font-size:11px;color:#8C2A1B">Lden ≥ 68 dB — point noir du bruit</div>   <div style="font-size:10.5px;color:#1B2430;margin-top:4px">Point noir du bruit</div> </div> </div>`)[0];
+                popup_0efd299fd6db8209b231dfd6a37ccde4.setContent(html_a9926e6f0b88b556718a2a2718ba64b3);
+            
+        
+
+        marker_44d25dc029df4fa19991b7f66468cb50.bindPopup(popup_0efd299fd6db8209b231dfd6a37ccde4)
+        ;
+
+        
+    
+    
+            marker_44d25dc029df4fa19991b7f66468cb50.bindTooltip(
+                `<div>
+                     Point noir — Voie rapide urbaine (VRU)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_44d25dc029df4fa19991b7f66468cb50.setIcon(icon_0600dbf853ad4cda36e091ea4925918c);
+            
+    
+            var layer_control_58663ea00a89aadff01324c2e9c07513_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_cc7f3e9f68f97849095298b79acde520,
+                },
+                overlays :  {
+                    "Exposition Lden" : feature_group_84de02ed0e8214623ad42dd0eb0bf1b6,
+                    "Carte de chaleur (\u00e9nergie)" : heat_map_53cf9671105524282a8168b3d615744e,
+                    "D\u00e9passements nocturnes (Ln \u2265 62 dB)" : feature_group_495a8c4bec60136357d8e31e9c0b228c,
+                    "Points noirs du bruit" : marker_cluster_1bacdd3ffe9759a2dee8b2317cc3c663,
+                },
+            };
+            let layer_control_58663ea00a89aadff01324c2e9c07513 = L.control.layers(
+                layer_control_58663ea00a89aadff01324c2e9c07513_layers.base_layers,
+                layer_control_58663ea00a89aadff01324c2e9c07513_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_b3d7548446d4bf64146b55ef4688e227);
+
+        
+</script>
+</html>
